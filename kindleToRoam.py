@@ -12,9 +12,15 @@ for line in range(0, (len(lines)), 5):
     titles.append(
     lines[line].split('(',1)[0][:-1]
     )
-    authors.append(
-    lines[line].rsplit('(',1)[1][:-2]
-    )
+    try:
+        authors.append(
+        lines[line].rsplit('(',1)[1][:-2]
+        )
+    except IndexError:
+        authors.append(
+        "Author unknown"
+        )
+    continue
 
 for line in range(3, (len(lines)), 5):
     highlights.append(
